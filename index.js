@@ -29,19 +29,50 @@ const posts = [
   },
 ];
 
-// Storing the DOM elements in the variables
-
-let avatar = document.querySelector(".avatar-vangogh");
-let userFullName = document.querySelector(".user-full-name");
-let locationText = document.querySelector(".location-text");
-let likeCount = document.querySelector(".like-count");
-let usernameCaption = document.querySelector(".username-caption");
-
-// Interactive elements (Image: double click, like: increase like count, comment: add a comment)
-let postImage = document.querySelector(".post-image");
-let like = document.querySelector(".like");
-let comment = document.querySelector(".comment");
+const mainSectionEl = document.querySelector(".main-section");
 
 for (let i = 0; i < posts.length; i++) {
-  console.log(posts[i].name);
+  mainSectionEl.innerHTML += `
+            <section class="post-container">
+                <div class="post-header">
+                    <img
+                    src="${posts[i].avatar}"
+                    alt="${posts[i].name}s image"
+                    class="posters-profile-image"
+                    />
+                    <div class="header-content">
+                        <h2 class="posters-name">${posts[i].name}</h2>
+                        <h3 class="posters-location">${posts[i].location}</h3>
+                    </div>
+                </div>
+                <img
+                    src="${posts[i].post}"
+                    alt="A self portrait by ${posts[i].name}"
+                    class="posters-post"
+                />
+                <div class="post-information">
+                    <div class="post-interactions">
+                    <img
+                        src="images/icon-heart.png"
+                        alt="A heart icon for likes"
+                        class="like-logo interaction-logo"
+                    />
+                    <img
+                        src="images/icon-comment.png"
+                        alt="A comment Icon"
+                        class="comment-logo interaction-logo"
+                    />
+                    <img
+                        src="images/icon-dm.png"
+                        alt="A paper airplane"
+                        class="dm-logo interaction-logo"
+                    />
+                    </div>
+                    <h3 class="post-likes">${posts[i].likes} likes</h3>
+                    <p class="post-decription">
+                        <span class="bold">${posts[i].username}</span> ${posts[i].comment}
+                    </p>
+                </div>
+            </section>
+    `;
 }
