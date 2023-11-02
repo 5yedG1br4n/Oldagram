@@ -30,9 +30,10 @@ const posts = [
 ];
 
 const mainSectionEl = document.querySelector(".main-section");
+let postsHolder = "";
 
 for (let i = 0; i < posts.length; i++) {
-  mainSectionEl.innerHTML += `
+  postsHolder += `
             <section class="post-container">
                 <div class="post-header">
                     <img
@@ -76,3 +77,5 @@ for (let i = 0; i < posts.length; i++) {
             </section>
     `;
 }
+
+mainSectionEl.innerHTML = postsHolder;
